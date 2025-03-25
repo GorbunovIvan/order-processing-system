@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: order-receiver-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic-orders: "topic-orders"
