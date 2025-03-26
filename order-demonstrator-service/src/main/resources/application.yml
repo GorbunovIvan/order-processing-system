@@ -8,3 +8,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/order-processing-system
     username: postgres
     password: root
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
