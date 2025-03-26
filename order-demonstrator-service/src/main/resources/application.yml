@@ -13,3 +13,10 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: validate
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic-orders: "topic-orders"
+    consumer:
+      enabled: true
+      group-id: app.1
+#      auto-offset-reset: earliest
