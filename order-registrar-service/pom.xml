@@ -11,8 +11,8 @@
 
     <artifactId>order-registrar-service</artifactId>
 
-    <name>order-receiver-service</name>
-    <description>order-receiver-service</description>
+    <name>order-registrar-service</name>
+    <description>order-registrar-service</description>
 
     <dependencies>
 
