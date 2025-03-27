@@ -1,5 +1,6 @@
 package org.example.model;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @ToString
 public class Order {
 
+    @Valid
     @NotNull
     private Customer customer;
 
@@ -22,6 +24,7 @@ public class Order {
 
     private LocalDateTime createdAt;
 
+    @Valid
     @NotEmpty
     private List<OrderItem> orderItems;
 }

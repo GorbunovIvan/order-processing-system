@@ -1,5 +1,6 @@
 package org.example.model;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
 @ToString
 public class OrderItem {
 
+    @Valid
     @NotNull
     private Product product;
 

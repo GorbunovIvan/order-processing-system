@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
-
 @RestController
 @RequestMapping("/api/v1/orders")
 @RequiredArgsConstructor
@@ -24,9 +22,7 @@ public class OrderRestController {
     @PostMapping
     public ResponseEntity<String> registerOrder(@RequestBody @Valid Order order) {
 
-        if (order.getCreatedAt() == null) {
-            order.setCreatedAt(LocalDateTime.now());
-        }
+        orderService.populateDefaultValuesForOrder(order);
 
         log.info("Registering order: {}", order);
         orderService.publishOrder(order);

@@ -3,21 +3,30 @@ Content-Type: application/json
 
 {
   "customer": {
-    "firstName": "firstName",
-    "lastName": "lastName",
+    "firstName": "3firstName",
+    "lastName": "3lastName",
     "email": "string@mail.com",
     "phone": "533785447767319"
   },
-  "paymentMethod": "CREDIT_CARD",
+  "paymentMethod": "BANK_TRANSFER",
   "orderItems": [
     {
       "product": {
-        "name": "some name",
+        "name": "some 3 name",
         "article": "dfgdfgdfg",
         "unit": "UNIT"
       },
-      "quantity": 1.0,
-      "pricePerUnit": 2.30
+      "quantity": 5.0,
+      "pricePerUnit": 1.30
+    },
+    {
+      "product": {
+        "name": "some 1 name",
+        "article": "hjhgjghj",
+        "unit": "KG"
+      },
+      "quantity": 4.0,
+      "pricePerUnit": 0.50
     }
   ]
 }
