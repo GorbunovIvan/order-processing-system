@@ -1,5 +1,6 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Digits;
@@ -30,6 +31,7 @@ public class OrderItem {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "order_id")
+    @JsonBackReference
     @Valid
     @Setter(AccessLevel.PACKAGE)
     private Order order;
