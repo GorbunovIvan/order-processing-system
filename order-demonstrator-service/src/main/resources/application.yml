@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: order-demonstrator-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order-processing-system
+    username: postgres
+    password: root
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic-orders: "topic-orders"
+    consumer:
+      enabled: true
+      group-id: app.1
+#      auto-offset-reset: earliest

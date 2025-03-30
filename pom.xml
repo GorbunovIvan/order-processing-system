@@ -12,6 +12,7 @@
 
     <modules>
         <module>order-registrar-service</module>
+        <module>order-demonstrator-service</module>
     </modules>
 
     <properties>
