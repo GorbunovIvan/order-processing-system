@@ -1,0 +1,32 @@
+POST http://localhost:8080/api/v1/orders
+Content-Type: application/json
+
+{
+  "customer": {
+    "firstName": "3firstName",
+    "lastName": "3lastName",
+    "email": "string@mail.com",
+    "phone": "533785447767319"
+  },
+  "paymentMethod": "BANK_TRANSFER",
+  "orderItems": [
+    {
+      "product": {
+        "name": "some 3 name",
+        "article": "dfgdfgdfg",
+        "unit": "UNIT"
+      },
+      "quantity": 5.0,
+      "pricePerUnit": 1.30
+    },
+    {
+      "product": {
+        "name": "some 1 name",
+        "article": "hjhgjghj",
+        "unit": "KG"
+      },
+      "quantity": 4.0,
+      "pricePerUnit": 0.50
+    }
+  ]
+}
