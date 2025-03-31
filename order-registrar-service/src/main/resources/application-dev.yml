@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: order-registrar-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic-orders: "topic-orders"
+  cloud:
+    discovery:
+      enabled: false

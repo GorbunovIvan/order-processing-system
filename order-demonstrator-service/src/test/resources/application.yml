@@ -8,3 +8,8 @@ spring:
     open-in-view: false
   flyway:
     enabled: false
+  cloud:
+    discovery:
+      enabled: false
+  config:
+    import: "optional:configserver:"
