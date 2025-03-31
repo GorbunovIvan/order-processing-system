@@ -10,6 +10,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Service
 @RequiredArgsConstructor
@@ -36,6 +37,8 @@ public class OrderService {
         if (order.getCreatedAt() == null) {
             order.setCreatedAt(LocalDateTime.now());
         }
+
+        order.setCreatedAt(order.getCreatedAt().truncatedTo(ChronoUnit.SECONDS));
 
         for (var orderItem : order.getOrderItems()) {
             var product = orderItem.getProduct();
