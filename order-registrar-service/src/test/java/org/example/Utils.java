@@ -18,26 +18,38 @@ public class Utils {
         var orderItems = easyRandom.objects(OrderItem.class, 3).toList();
         for (var orderItem : orderItems) {
 
-            var product = easyRandom.nextObject(Product.class);
-            product.setArticle(product.getArticle().replace(" ", ""));
-            if (product.getArticle().length() > 16) {
-                product.setArticle(product.getArticle().substring(10));
-            }
-
+            var product = generateRandomProduct();
             orderItem.setProduct(product);
+
             orderItem.setQuantity(BigDecimal.valueOf(easyRandom.nextDouble(1000)).setScale(6, RoundingMode.HALF_UP));
             orderItem.setPricePerUnit(BigDecimal.valueOf(easyRandom.nextDouble(1000)).setScale(2, RoundingMode.HALF_UP));
         }
 
-        var customer = easyRandom.nextObject(Customer.class);
-        customer.setEmail(customer.getEmail() + "@gmail.com");
-        customer.setPhone(generateRandomPhoneNumber());
+        var customer = generateRandomCustomer();
 
         var order = easyRandom.nextObject(Order.class);
         order.setOrderItems(orderItems);
         order.setCustomer(customer);
 
         return order;
+    }
+
+    // Products
+    public static Product generateRandomProduct() {
+        var product = easyRandom.nextObject(Product.class);
+        product.setArticle(product.getArticle().replaceAll(" ", ""));
+        if (product.getArticle().length() > 16) {
+            product.setArticle(product.getArticle().substring(0, 10));
+        }
+        return product;
+    }
+
+    // Customers
+    public static Customer generateRandomCustomer() {
+        var customer = easyRandom.nextObject(Customer.class);
+        customer.setEmail(customer.getEmail() + "@gmail.com");
+        customer.setPhone(generateRandomPhoneNumber());
+        return customer;
     }
 
     private static String generateRandomPhoneNumber() {
