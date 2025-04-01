@@ -1,5 +1,5 @@
 spring:
   application:
-    name: order-demonstrator-service
+    name: api-gateway
   config:
     import: optional:configserver:http://localhost:8888

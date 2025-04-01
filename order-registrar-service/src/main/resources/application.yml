@@ -1,9 +1,5 @@
-server:
-  port: 8080
-
 spring:
   application:
-    name: order-receiver-service
-  kafka:
-    bootstrap-servers: localhost:9092
-    topic-orders: "topic-orders"
+    name: order-registrar-service
+  config:
+    import: optional:configserver:http://localhost:8888

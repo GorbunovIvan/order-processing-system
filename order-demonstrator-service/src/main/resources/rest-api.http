@@ -1,16 +1,16 @@
-GET http://localhost:8081/api/v1/orders/24
+GET http://localhost:8082/api/v1/orders/42
 
 ###
-GET http://localhost:8081/api/v1/orders
+GET http://localhost:8082/api/v1/orders
 
 ###
-GET http://localhost:8081/api/v1/orders?pageNumber=1&pageSize=2
+GET http://localhost:8082/api/v1/orders?pageNumber=1&pageSize=2
 
 ###
-GET http://localhost:8081/api/v1/orders/ids/24,26
+GET http://localhost:8082/api/v1/orders/ids/24,26
 
 ###
-GET http://localhost:8081/api/v1/orders/customer/string@mail.com
+GET http://localhost:8082/api/v1/orders/customer/string@mail.com
 
 ###
-GET http://localhost:8081/api/v1/orders/product/dfgdfgdfg
+GET http://localhost:8082/api/v1/orders/product/dfgdfgdfg
