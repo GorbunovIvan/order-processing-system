@@ -1,0 +1,39 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: demonstrator-service-deployment
+  labels:
+    app: order-processing-system-demonstrator-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: order-processing-system-demonstrator-service
+  template:
+    metadata:
+      labels:
+        project: order-processing-system-demonstrator-service
+    spec:
+      containers:
+        - name: demonstrator-service
+          image: ivangorbunovv/order-processing-system:demonstrator-service
+          ports:
+            - containerPort: 8082
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demonstrator-service
+  labels:
+     env  : dev
+     owner: IvanGorbunov
+spec:
+  selector:
+    project: order-processing-system-demonstrator-service
+  ports:
+    - name      : demonstrator-service-listener
+      protocol  : TCP
+      port      : 8082
+      targetPort: 8082
+  #type: CLusterIP
