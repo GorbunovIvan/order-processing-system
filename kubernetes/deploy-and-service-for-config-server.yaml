@@ -1,0 +1,46 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: config-server-deployment
+  labels:
+    app: order-processing-system-config-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: order-processing-system-config-server
+  template:
+    metadata:
+      labels:
+        project: order-processing-system-config-server
+    spec:
+      containers:
+        - name: config-server
+          image: ivangorbunovv/order-processing-system:config-server
+          ports:
+            - containerPort: 8888
+          env:
+            - name: SPRING_APPLICATION_JSON
+              value: >
+                {
+                 "spring.cloud.config.server.git.username" : "GorbunovIvan",
+                 "spring.cloud.config.server.git.password" : ""
+                }
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: config-server
+  labels:
+     env  : dev
+     owner: IvanGorbunov
+spec:
+  selector:
+    project: order-processing-system-config-server
+  ports:
+    - name      : config-server-listener
+      protocol  : TCP
+      port      : 8888
+      targetPort: 8888
+  #type: CLusterIP
