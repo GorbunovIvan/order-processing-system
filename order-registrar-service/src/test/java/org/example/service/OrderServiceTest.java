@@ -12,6 +12,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.concurrent.CompletableFuture;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -77,9 +78,11 @@ class OrderServiceTest {
             product.setUnit(UnitOfMeasurement.M3);
         }
 
+        var createdAtExpected = createdAt.truncatedTo(ChronoUnit.SECONDS);
+
         orderService.populateDefaultValuesForOrder(order);
 
-        assertEquals(createdAt, order.getCreatedAt());
+        assertEquals(createdAtExpected, order.getCreatedAt());
 
         for (var orderItem : order.getOrderItems()) {
             var product = orderItem.getProduct();
